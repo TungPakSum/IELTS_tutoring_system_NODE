@@ -53,7 +53,7 @@ router.get('/get/role/:role', auth, async function (req, res, next) {
     delete user.iat;
     delete user.exp;
 
-    if (user.role === 'stationManager')
+    if (user.role === 'student')
         return res.status(403).send("Not allowed to access!");
 
     console.log(req.params.role);
@@ -178,7 +178,7 @@ router.post("/create", auth, async function (req, res, next) {
     delete loggedUser.iat;
     delete loggedUser.exp;
 
-    if (loggedUser.role === 'stationManager')
+    if (loggedUser.role === 'student')
         return res.status(403).send("Not allowed to create users!");
 
     let user = req.body;
@@ -188,6 +188,7 @@ router.post("/create", auth, async function (req, res, next) {
         const result = await db.collection("users").insertOne({
             username: user.username,
             password: hash,
+            email: user.email,
             role: user.role,
         });
         return res.status(201).json(result);

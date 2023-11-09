@@ -34,7 +34,7 @@ router.put("/update/:id", auth, async function (req, res) {
   delete user.iat;
   delete user.exp;
 
-  if (user.role === 'stationManager')
+  if (user.role === 'student')
   return res.status(403).send("Not authorized to create events!");
 
   let result = {};
@@ -76,7 +76,7 @@ router.post("/create", auth, async function (req, res, next) {
   delete user.iat;
   delete user.exp;
 
-  if (user.role === 'stationManager')
+  if (user.role === 'student')
   return res.status(403).send("Not authorized to create events!");
 
   new ObjectId(req.body.id);
