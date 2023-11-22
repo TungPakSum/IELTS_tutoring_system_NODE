@@ -4,7 +4,7 @@ var router = express.Router();
 /* MongoDB Client */
 const { MongoClient } = require("mongodb");
 let ObjectId = require("mongodb").ObjectId;
-const url = "mongodb://groupd:vlQz3qq10nGdmFSb@ac-gm2iezg-shard-00-00.eyyijsu.mongodb.net:27017,ac-gm2iezg-shard-00-01.eyyijsu.mongodb.net:27017,ac-gm2iezg-shard-00-02.eyyijsu.mongodb.net:27017/?ssl=true&replicaSet=atlas-wzwa6h-shard-0&authSource=admin&retryWrites=true&w=majority";
+const url = "mongodb+srv://20230087:TungPakSum87@fyp.mjak5tb.mongodb.net/";
 const client = new MongoClient(url);
 const db = client.db('cubcGroupD-DB');
 const auth = require("../middlewares/auth");

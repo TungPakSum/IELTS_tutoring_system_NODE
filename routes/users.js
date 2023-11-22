@@ -196,18 +196,25 @@ router.post("/create", auth, async function (req, res, next) {
         return res.status(500).json(e);
     }
 });
-
-// router.post('/create', async function (req, res, next) {
-//     console.log(req.body);
-//     new ObjectId(req.body.id);
-//     let users = req.body;
-//     try {
-//         const result = await db.collection('users').insertOne(users);
-//         return res.status(201).json(result);
-//     } catch (e) {
-//         return res.status(500).json(e);
-//     }
-// });
+//Sign up
+ router.post('/reg', async function (req, res, next) {
+     console.log(req.body);
+     new ObjectId(req.body.id);
+     let user = req.body;
+     const salt = bcrypt.genSaltSync(saltRounds);
+     const hash = bcrypt.hashSync(user.password, salt);
+     try {
+         const result = await db.collection("users").insertOne({
+            username: user.username,
+            password: hash,
+            email: user.email,
+            role: user.role,
+        });
+         return res.status(201).json(result);
+     } catch (e) {
+         return res.status(500).json(e);
+     }
+ });
 
 // Get Users
 router.get("/:url", auth, async function (req, res) {
