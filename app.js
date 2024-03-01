@@ -11,6 +11,7 @@ const stationsRouter = require('./routes/stations');
 const volunteersRouter = require('./routes/volunteers');
 const bagsRouter = require('./routes/flagbags');
 const chatsRouter = require('./routes/chats');
+const speakingChatsRouter = require('./routes/speakingChats');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/api/stations/', stationsRouter);
 app.use('/api/volunteers/', volunteersRouter);
 app.use('/api/flagbags/', bagsRouter);
 app.use('/api/chats/', chatsRouter);
+app.use('/api/speakingChats/', speakingChatsRouter);
 
 /* test case */
 const { MongoClient } = require("mongodb");
