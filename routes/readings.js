@@ -223,7 +223,7 @@ router.get("/getall/perPage=:perPage/page=:page", auth, async function (req, res
     .skip((page - 1) * perPage)
     .toArray();
 
-  
+  console.log(results);
 
   const totalCount = await db.collection('passages').countDocuments();
   const totalPages = Math.ceil(totalCount / perPage);

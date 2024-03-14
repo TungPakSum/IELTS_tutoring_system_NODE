@@ -13,6 +13,7 @@ const bagsRouter = require('./routes/flagbags');
 const chatsRouter = require('./routes/chats');
 const speakingChatsRouter = require('./routes/speakingChats');
 const readingsRouter = require('./routes/readings');
+const scoresRouter = require('./routes/scores');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use('/api/flagbags/', bagsRouter);
 app.use('/api/chats/', chatsRouter);
 app.use('/api/speakingChats/', speakingChatsRouter);
 app.use('/api/readings/', readingsRouter);
+app.use('/api/scores/', scoresRouter);
 
 /* test case */
 const { MongoClient } = require("mongodb");

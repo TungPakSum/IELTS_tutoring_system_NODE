@@ -150,7 +150,7 @@ router.post("/login", async function (req, res, next) {
                     },
                     "process.env.TOKEN_KEY",
                     {
-                        expiresIn: "1h",
+                        expiresIn: "3h",
                     }
                 );
                 user.token = token;
