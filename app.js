@@ -6,10 +6,6 @@ let cors = require('cors')
 
 var indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const eventsRouter = require('./routes/events');
-const stationsRouter = require('./routes/stations');
-const volunteersRouter = require('./routes/volunteers');
-const bagsRouter = require('./routes/flagbags');
 const chatsRouter = require('./routes/chats');
 const speakingChatsRouter = require('./routes/speakingChats');
 const readingsRouter = require('./routes/readings');
@@ -32,10 +28,6 @@ app.use(
 
 app.use('/', indexRouter);
 app.use('/api/users/', usersRouter);
-app.use('/api/events/', eventsRouter);
-app.use('/api/stations/', stationsRouter);
-app.use('/api/volunteers/', volunteersRouter);
-app.use('/api/flagbags/', bagsRouter);
 app.use('/api/chats/', chatsRouter);
 app.use('/api/speakingChats/', speakingChatsRouter);
 app.use('/api/readings/', readingsRouter);
